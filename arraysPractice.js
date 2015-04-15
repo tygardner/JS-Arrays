@@ -143,14 +143,38 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   myGroceryList then return the new, updated grocery list.
 */
 
-  var removeItem = function(item){
-    for(var i=0; i < myGroceryList.length; i++){
-      if(removeItem[i] === myGroceryList[i]){
+ var addItem = function(newItem, myGroceryList){
+    var myNewList = myGroceryList;
+    var pleaseAddItem = true;
+      for(var i = 0; i < myGroceryList.length; i++){
+        if(newItem === myGroceryList[i]){
+          pleaseAddItem = false;
+        }
       }
-    }
-      return myGrocerylist.remove(item);
-  };
+      if(pleaseAddItem){
+        myNewList.push(newItem);
+      }
+    return myNewList;
+ }
 
+Look over this
+ var removeItem = function(newItem, myList){
+    var myNewList = myGroceryList;
+    // var pleaseRemoveItem = true;
+      for(var i = 0; i < myGroceryList.length; i++){
+        if(newItem === myGroceryList[i]){
+          myNewList.splice(i,1);
+        }
+        
+      }
+    return myNewList;
+ }
+
+
+
+
+
+ //removeItem('chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem('Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
 
 
@@ -160,9 +184,9 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-var array = [];
 
 var maker = function (){
+  var array = [];
   for (var i = 1; i <= 215; i++) {
     array.push(i);
   }
@@ -179,7 +203,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
-  //Code Here
+var addTen = function(numbers){
+  for (var i=0; i < numbers.length; i++){
+    var number = parseInt(numbers[i]);
+    numbers[i] = number + 10;
+  }
+  return numbers;
+};
+
 
 
 
@@ -200,7 +231,17 @@ for(var i = 0; i < num2; i++){
 //Above is some code that adds a random number to both arr1 and arr2.
 //Write a function that is given arr1 and arr2 is it's only arguments. Return the array which is longest.
 
-  //Code Here
+var random = function(r1, r2){
+  console.log(r1.length, r2.length)
+  if(r1.length > r2.length){
+      console.log ("r1 is longer");
+
+  }
+  else{
+    console.log ("r2 is longer");
+  }
+} 
+
 
 
 /*As a continuation of the previous problem, write another function called 'both'.
@@ -208,4 +249,15 @@ for(var i = 0; i < num2; i++){
   'both' should return a new array full of numbers that are found in both arr1 and arr2.
 */
 
-  //Code Here
+
+var both = function(r1, r2){
+ var newarray =[];
+  console.log(r1.length, r2.length)
+  for(var i = 0; i < r1.length; i++){
+  newarray.push(r1[i]);
+}
+for(var i = 0; i < r2.length; i++){
+  newarray.push(r2[i]);
+  }
+  console.log(newarray);
+} 
